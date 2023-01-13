@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { KrunalComponent } from './krunal/krunal.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CreateUserComponent,
     UserListComponent,
     UpdateUserComponent,
-    HomeComponent
+    HomeComponent,
+    KrunalComponent
   ],
   imports: [
     BrowserModule,
