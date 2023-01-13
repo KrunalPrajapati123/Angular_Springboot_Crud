@@ -1,0 +1,27 @@
+<h1>List of Users</h1><pre></pre>
+<div class="table-responsive">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">City</th>
+                <th scope="col">Department</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let user of users">
+                <td scope="row">{{user.id }}</td>
+                <td scope="row">{{user.name | uppercase}}</td>
+                <td>{{user.city }}</td>
+                <td>{{user.department }}</td>
+                <td><button type="button" class="btn btn-primary " (click)="updateUser(user.id)">Update</button>
+                    <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="deleteUser(user.id)">Delete</button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

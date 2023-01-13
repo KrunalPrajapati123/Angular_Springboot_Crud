@@ -1,0 +1,50 @@
+
+
+<div>
+    <!-- <ng-content select="p">Create User</ng-content> -->
+<h2 *ngIf="id"> Update User</h2><pre></pre>
+<h2 *ngIf="!id">Create User</h2><pre></pre>
+
+<form #create="ngForm" [formGroup]="createUser" (ngSubmit)="submit()"  >
+ 
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input  class="form-control"  placeholder="Enter Name" type="text" name="name" id="name" formControlName="name"> 
+  </div>
+      <div *ngIf="(createUser.controls['name'].touched || create.submitted) && createUser.controls['name'].invalid" class="text-danger">
+      <span [hidden]="!createUser.controls['name'].hasError('required')" >Name is Required</span>
+      <span *ngIf="createUser.controls['name'].hasError('minlength')" >Name should be min 2 character.</span>
+    </div>
+    
+    <pre></pre>
+
+    <div class="form-group">
+      <label for="city">City</label>
+      <input  class="form-control"  placeholder="Enter City" type="text" name="city" id="city" formControlName="city"> 
+    </div>
+        <div *ngIf="(createUser.controls['city'].touched || create.submitted) && createUser.controls['city'].invalid" class="text-danger">
+        <span [hidden]="!createUser.controls['city'].hasError('required')" >city is Required</span>
+      </div>
+    
+    <pre></pre>
+
+    <div class="form-group">
+      <label for="department">Department</label>
+      <input  class="form-control"  placeholder="Enter Department" type="text" name="department" id="department" formControlName="department" > 
+    </div>
+        <div *ngIf="(createUser.controls['department'].touched || create.submitted) && createUser.controls['department'].invalid" class="text-danger">
+        <span [hidden]="!createUser.controls['department'].hasError('required')" >Department is Required</span>
+      </div>
+
+  
+    <pre></pre>
+    <div *ngIf="id">
+      <button type="submit" class="btn btn-warning" >Update</button>
+    </div>
+    <div *ngIf="!id">
+      <button type="submit" class="btn btn-primary" >Save</button>
+    </div>
+  </form>
+  <!-- <ng-template #tempsave>(ngSubmit)="save()"</ng-template>
+  <ng-template #tempupdate>(ngSubmit)="update()"</ng-template> -->
+</div>
