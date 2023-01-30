@@ -36,6 +36,10 @@ export class UserListComponent {
     })
 
   }
+
+  sendEmail(id:number){
+    this.router.navigate(['sendemail',id]);
+  }
   
     
 }

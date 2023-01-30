@@ -1,0 +1,82 @@
+
+<!--Section: Contact v.2-->
+<section class="mb-4">
+
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Send Mail</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5">Fill the details to whom you want to send email</p>
+
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-md-0 mb-5">
+            <form  #emailSend="ngForm" [formGroup]="emailDetails" (ngSubmit)="submit()" >
+
+                <!--Grid row-->
+                <div class="row " >
+                    <!--Grid column-->
+                    <div class="col-md-12">
+                        <div class=" mb-0 form-group" >
+                            <pre></pre>  <label for="email" class="">Email</label>
+                            <input type="text" id="email" name="email" class="form-control"  formControlName="to">
+                           
+                        </div>
+                        <div *ngIf="(emailDetails.controls['to'].touched || emailSend.submitted) && emailDetails.controls['to'].invalid" class="text-danger">
+                            <span [hidden]="!emailDetails.controls['to'].hasError('required')" >Email is Required</span>
+                            <span *ngIf="emailDetails.controls['to'].hasError('pattern')" >Please Enter valid email</span>
+                          </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-0 form-group">
+                            <pre></pre>  <label for="subject" class="">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" formControlName="subject" />
+                           
+                        </div>
+                        <div *ngIf="(emailDetails.controls['subject'].touched || emailSend.submitted) && emailDetails.controls['subject'].invalid" class="text-danger">
+                            <span [hidden]="!emailDetails.controls['subject'].hasError('required')" >Subject is Required</span>
+                            <span *ngIf="emailDetails.controls['subject'].hasError('minlength')" >Subject lenth should be minimum 6 letters</span>
+                          </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="form-group">
+                            <pre></pre>  <label for="message">Your message</label>
+                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"  formControlName="msg"></textarea>
+                            
+                        </div>
+                        <div *ngIf="(emailDetails.controls['msg'].touched || emailSend.submitted) && emailDetails.controls['msg'].invalid" class="text-danger">
+                            <span [hidden]="!emailDetails.controls['msg'].hasError('required')" >Message is Required</span>
+                          </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+                <div class="text-center text-md-left mt-5">
+                    <button type="submit" class="btn btn-primary" >Send</button>
+                  </div>
+            </form>
+            
+           
+            <div class="status"></div>
+        </div>
+        <!--Grid column-->
+        
+    </div>
+
+</section>
+<!--Section: Contact v.2-->

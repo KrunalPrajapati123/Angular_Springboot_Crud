@@ -7,6 +7,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">City</th>
                 <th scope="col">Department</th>
+                <th scope="col">Email Id</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -17,8 +18,16 @@
                 <td scope="row">{{user.name | uppercase}}</td>
                 <td>{{user.city }}</td>
                 <td>{{user.department }}</td>
-                <td><button type="button" class="btn btn-primary " (click)="updateUser(user.id)">Update</button>
+                <td>{{user.email }}</td>
+                <td [ngStyle]="{'cursor': 'pointer'}">
+                <!--<button type="button" class="btn btn-primary " (click)="updateUser(user.id)">Update</button>
                     <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="deleteUser(user.id)">Delete</button>
+                    <button type="button" class="btn btn-warning" style="margin-left: 10px;" (click)="sendEmail(user.id)">Send Mail</button> -->
+                    
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"  [ngStyle]="{'color': 'violate','margin-left':'2px'}" (click)="updateUser(user.id)" ></mat-icon>
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete_forever" [ngStyle]="{'color': 'red','margin-right':'2px'}" (click)="deleteUser(user.id)"></mat-icon>
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="email" [ngStyle]="{'color': 'blue','margin-leftRIGHT':'2px'}" (click)="sendEmail(user.id)"></mat-icon>
+                    
                 </td>
 
             </tr>

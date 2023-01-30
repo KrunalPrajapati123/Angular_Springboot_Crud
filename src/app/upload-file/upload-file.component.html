@@ -1,0 +1,17 @@
+<p>upload-file works!</p>
+
+<div class="card mt-5" style="width: 300;">
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Upload File</h2>
+ 
+<div class="mb-3 col-md-8 ml-10 " [ngStyle]="{'margin-left':'300px'}">
+ 
+  <input type="file" class="form-control" name="" id="" placeholder="" aria-describedby="fileHelpId" (change)="onChange($event)">
+  <div id="fileHelpId" class="form-text">Upload file here</div>
+  <div *ngIf="flag==false" class="text-danger">Please Select excel file only</div>
+</div>
+
+<div class="text-center text-md-left  mb-5"  >
+    <button type="submit" class="btn btn-success" (click)="submit()" [disabled]="!flag">Upload</button>
+</div>
+
+</div>

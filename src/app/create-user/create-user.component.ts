@@ -20,7 +20,8 @@ export class CreateUserComponent {
     this.createUser = this.fb.group({
       name: ["", [Validators.required, Validators.minLength(2)]],
       city: ["", Validators.required],
-      department: ["", Validators.required]
+      department: ["", Validators.required],
+      email:["",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]]
     })
   }
 
@@ -34,6 +35,7 @@ export class CreateUserComponent {
           name: data.name,
           city: data.city,
           department: data.department,
+          email:data.email
         })
         console.log("createuser data: " + this.createUser);
         console.log("user data: " + JSON.stringify(data))
@@ -41,6 +43,7 @@ export class CreateUserComponent {
       })
     }
   }
+
 
   submit() {
     if (this.createUser.valid) {

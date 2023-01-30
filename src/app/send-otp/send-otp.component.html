@@ -1,0 +1,51 @@
+
+
+<!--Section: Contact v.2-->
+    <div class="card mt-5" style="width: 300;">
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Send OTP</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5">Provide the Email ID !!</p>
+
+    <div class="row" [ngStyle]="{'margin-left':'300px'}" >
+
+        <form #sendOtp="ngForm" (ngSubmit)="submit(sendOtp)">
+        <!--Grid column-->
+        <div class="col-md-8 ml-10 ">
+    
+                <!--Grid row-->
+                <div class="row " >
+                    <!--Grid column-->
+                    <div class="col-md-12">
+                        <div class=" mb-0 form-group" >
+                            <pre></pre>  <label for="email" class="">Email</label>
+                            <input type="text" id="email" name="email" class="form-control" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  [(ngModel)]="emailId" #email="ngModel">
+                           
+                        </div>
+                        <div *ngIf="(email.touched || sendOtp.submitted) && email.invalid" class="text-danger">
+                            <span [hidden]="!email.hasError('required')" >Email is Required</span>
+                            <span *ngIf="email.hasError('pattern')" >Email Not Valid</span>
+                          </div>
+
+                        
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+               
+                <!--Grid row-->
+                <div class="text-center text-md-left mt-5 mb-5">
+                    <button type="submit" class="btn btn-warning" >Send OTP</button>
+                  </div>
+
+            
+        </div>
+        <!--Grid column-->
+    </form>
+    </div>
+</div>
+
+
+<!--Section: Contact v.2-->

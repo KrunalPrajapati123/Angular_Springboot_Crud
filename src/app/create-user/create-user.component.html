@@ -35,7 +35,16 @@
         <div *ngIf="(createUser.controls['department'].touched || create.submitted) && createUser.controls['department'].invalid" class="text-danger">
         <span [hidden]="!createUser.controls['department'].hasError('required')" >Department is Required</span>
       </div>
+    <pre></pre>
 
+    <div class="form-group">
+      <label for="department">Email</label>
+      <input  class="form-control"  placeholder="Enter email" type="text" name="email" id="email" formControlName="email" > 
+    </div>
+        <div *ngIf="(createUser.controls['email'].touched || create.submitted) && createUser.controls['email'].invalid" class="text-danger">
+        <span [hidden]="!createUser.controls['email'].hasError('required')" >Email is Required</span>
+        <span *ngIf="createUser.controls['email'].hasError('pattern')" >Please Enter valid email</span>
+      </div>
   
     <pre></pre>
     <div *ngIf="id">
